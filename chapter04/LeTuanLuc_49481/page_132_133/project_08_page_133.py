@@ -25,10 +25,10 @@ def open_text(mode):
 
 def main():
     print('Input file')
-    input_flie = open_text('r')
+    input_file = open_text('r')
     print('Output file')
     output_file = open_text('a')
-    output_file.write(input_flie.read())
+    output_file.write(input_file.read())
 
 
 if __name__ == "__main__":

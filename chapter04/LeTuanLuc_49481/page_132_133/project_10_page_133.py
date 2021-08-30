@@ -24,19 +24,19 @@ def open_text(mode):
     return open(file_name, mode)
 
 
-def is_compare(input_flie_a, input_flie_b):
-    for line_a in input_flie_a:
-        if line_a != input_flie_b.readline():
+def is_compare(input_file_a, input_file_b):
+    for line_a in input_file_a:
+        if line_a != input_file_b.readline():
             return False
     return True
 
 
 def main():
     print('Input file A')
-    input_flie_a = open_text('r')
+    input_file_a = open_text('r')
     print('Input file B')
-    input_flie_b = open_text('r')
-    print(is_compare(input_flie_a, input_flie_b))
+    input_file_b = open_text('r')
+    print(is_compare(input_file_a, input_file_b))
 
 
 if __name__ == "__main__":

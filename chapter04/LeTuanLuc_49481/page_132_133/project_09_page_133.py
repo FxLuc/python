@@ -29,11 +29,11 @@ def open_text(mode):
 
 def main():
     print('Input file')
-    input_flie = open_text('r')
+    input_file = open_text('r')
     print('Output file')
     output_file = open_text('a')
     count = 0
-    for line in input_flie:
+    for line in input_file:
         count += 1
         output_file.write(f"{count}> {line}")
 
