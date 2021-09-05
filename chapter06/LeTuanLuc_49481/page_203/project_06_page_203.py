@@ -1,13 +1,10 @@
 """
 Author: Le Tuan Luc
 Date: 2021/09/05
-Program: project_07_page_203.py
+Program: project_06_page_203.py
 Problem:
-    Write a recursive function that expects a pathname as an argument.
-    The pathname can be either the name of a file or the name of a directory.
-    If the path namerefers to a file, its name is displayed, followed by its contents.
-    Otherwise, if the pathname refers to a directory, the function is applied to each name in the directory.
-    Test this function in a new program
+    Add a command to this chapter’s case study program that allows the user to view the contents of a file in the current working directory.
+    When the command is selected, the program should display a list of filenames and a prompt for the name of the file to be viewed.
 Solution:
     >>>
 """
@@ -77,6 +74,8 @@ def move_down(current_dir):
     new_dir = input("Enter the directory name: ")
     if os.path.exists(current_dir + os.sep + new_dir) and os.path.isdir(new_dir):
         os.chdir(new_dir)
+    elif os.path.exists(current_dir + os.sep + new_dir):
+        print_file(new_dir)
     else:
         print("ERROR: no such name")
 
@@ -110,7 +109,7 @@ def count_bytes(path):
 
 
 def find_files(target, path):
-    #Returns a list of the filenames that contain the target string in the cwd and all its subdirectories.
+    # Returns a list of the filenames that contain the target string in the cwd and all its subdirectories.
     files = []
     lyst = os.listdir(path)
     for element in lyst:
@@ -122,6 +121,12 @@ def find_files(target, path):
                 files.extend(find_files(target, os.getcwd()))
                 os.chdir("..")
     return files
+
+
+def print_file(file_name):
+    with open(file_name, "r") as ifl:
+        for data_line in ifl:
+            print(data_line)
 
 
 def main():
