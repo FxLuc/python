@@ -37,7 +37,7 @@ def main():
         print("Python's estimate: ", math.sqrt(x))
         main()
     except ValueError:
-        print("TERMINATED")
+        print("Have a nice day!")
 
 
 if __name__ == "__main__":

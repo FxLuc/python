@@ -1,9 +1,13 @@
 """
 Author: Le Tuan Luc
-Date: 2021/08/11
-Program: casestudy_nondirective_sychotherapys_page_159.py
+Date: 2021/09/05
+Program: project_07_page_203.py
 Problem:
-    Write a program that emulates a nondirective psychotherapist.
+    Write a recursive function that expects a pathname as an argument.
+    The pathname can be either the name of a file or the name of a directory.
+    If the path namerefers to a file, its name is displayed, followed by its contents.
+    Otherwise, if the pathname refers to a directory, the function is applied to each name in the directory.
+    Test this function in a new program
 Solution:
     >>>
 """

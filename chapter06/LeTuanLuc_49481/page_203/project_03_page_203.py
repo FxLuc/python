@@ -23,14 +23,14 @@ def newton(x, estimate=1.0):
 
 
 def main():
-    while True:
-        x = input("Enter a positive number: ")
-        try:
-            x = float(x)
-            print("The square root of ", x, "is ", round(newton(x), 2))
-            print("Python's estimate: ", math.sqrt(x))
-        except ValueError:
-            break
+    x = input("Enter a positive number: ")
+    try:
+        x = float(x)
+        print("The square root of ", x, "is ", round(newton(x), 2))
+        print("Python's estimate: ", math.sqrt(x))
+        main()
+    except ValueError:
+            print("Have a nice day!")
 
 
 if __name__ == "__main__":
