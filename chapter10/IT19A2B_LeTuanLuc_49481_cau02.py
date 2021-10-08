@@ -3,7 +3,7 @@ Author: Le Tuan Luc
 Date: 2021/10/01
 Program: IT19A2B_LeTuanLuc_49481_cau02.py
 """
-product = []
+products = []
 
 
 class Product:
@@ -18,8 +18,8 @@ class Product:
 
 
 def is_product_empty():
-    if product == []:
-        print("You must import data from file input.txt first!")
+    if products == []:
+        print("You must import product from file input.txt first!")
         return True
     return False
 
@@ -28,28 +28,28 @@ def import_files():
     print("Importing from file input...")
     f = open("IT19A2B_LeTuanLuc_49481_inp.txt", 'r')
     for line in f:
-        data_in_line = line.split("|")
-        product.append(Product(data_in_line[0], data_in_line[1], data_in_line[2], data_in_line[3]))
+        product_in_line = line.split("|")
+        products.append(Product(product_in_line[0], product_in_line[1], product_in_line[2], product_in_line[3]))
     print("Done!")
 
 
-def show_data():
+def show_product():
     if not is_product_empty():
         print("{:^7} {:<10} {:^8} {:>10} {:>10}".format("ID", "Name", "Quantity", "Price", "Payment"))
-        for data in product:
-            print("{:^7} {:<10} {:^8} {:>10} {:>10}".format(data.id, data.name, data.qty, data.price, data.payment))
+        for product in products:
+            print("{:^7} {:<10} {:^8} {:>10} {:>10}".format(product.id, product.name, product.qty, product.price, product.payment))
 
 
 def show_the_higher_product_price():
     if not is_product_empty():
         max_price = 0
-        for data in product:
-            if data.price > max_price:
-                max_price = data.price
+        for product in products:
+            if product.price > max_price:
+                max_price = product.price
 
-        for data in product:
-            if data.price == max_price:
-                print("{:^7} {:<10} {:^8} {:>10} {:>10}".format(data.id, data.name, data.qty, data.price, data.payment))
+        for product in products:
+            if product.price == max_price:
+                print("{:^7} {:<10} {:^8} {:>10} {:>10}".format(product.id, product.name, product.qty, product.price, product.payment))
 
 
 def filter_product_quantity(number_of_quantity):
@@ -57,16 +57,16 @@ def filter_product_quantity(number_of_quantity):
         print("Creating file output...")
         f = open("IT19A2B_LeTuanLuc_49481_out.txt", "a")
         print("Exporting to file output...")
-        for data in product:
-            if data.qty >= number_of_quantity:
-                f.write(f"{data.id}|{data.name}|{data.qty}|{data.price}|{data.payment}\n")
+        for product in products:
+            if product.qty >= number_of_quantity:
+                f.write(f"{product.id}|{product.name}|{product.qty}|{product.price}|{product.payment}\n")
         print("Done!")
 
 
 def main():
     print("\n", "="*5, " MENU ", "="*5)
-    print("1. Import data from file input.txt")
-    print("2. Show data")
+    print("1. Import product from file input.txt")
+    print("2. Show product")
     print("3. Show the highest product price")
     print("4. Export product qty>5 to output.txt")
     print("Enter any number else to quit.")
@@ -77,7 +77,7 @@ def main():
         if choice == 1:
             import_files()
         if choice == 2:
-            show_data()
+            show_product()
         if choice == 3:
             show_the_higher_product_price()
         if choice == 4:
