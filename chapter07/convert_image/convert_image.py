@@ -56,7 +56,7 @@ def rgb_limiting(r, g, b):
 
 
 def main():
-    image_path = "chapter07/convert_image/smokey.gif"
+    image_path = "chapter07/convert_image/smokey.jpg"
     change_brightness(image_path, 200) #lighten 200%
     change_brightness(image_path, -50) #darken 50%
     color_filter(image_path, (100, 100, 0)) #filter 100% yellow
