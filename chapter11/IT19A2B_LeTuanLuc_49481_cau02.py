@@ -14,17 +14,17 @@ class Student:
         self.theory_marks = float(_theory_marks)
         self.practice_marks = float(_practice_marks)
     @property
-    def final_grade(self):
+    def overall(self):
         return float(f"{(self.theory_marks + self.practice_marks)/2: .2f}")
     @property
     def classification(self):
-        if (self.final_grade < 5.0):
+        if (self.overall < 5.0):
             return "F"
-        elif (self.final_grade < 7.0):
+        elif (self.overall < 7.0):
             return "D"
-        elif (self.final_grade < 8.0):
+        elif (self.overall < 8.0):
             return "C"
-        elif (self.final_grade < 9.0):
+        elif (self.overall < 9.0):
             return "B"
         else:
             return "A"
@@ -50,16 +50,16 @@ def show_data():
     if not is_students_empty():
         print("{:^7} {:<20} {:^10} {:^10} {:^10} {:^10} {:^15}".format("ID", "Name", "Tel", "Theory", "Pratice", "Final", "Classification"))
         for student in students:
-            print("{:^7} {:<20} {:^10} {:^10} {:^10} {:^10} {:^15}".format(student.id, student.name, student.tel, student.theory_marks, student.practice_marks, student.final_grade, student.classification))
+            print("{:^7} {:<20} {:^10} {:^10} {:^10} {:^10} {:^15}".format(student.id, student.name, student.tel, student.theory_marks, student.practice_marks, student.overall, student.classification))
 
-def filter_students_final_grade(final_grade):
+def filter_students_overall(overall):
     if not is_students_empty():
         print("Creating file output...")
         f = open("IT19A2B_LeTuanLuc_49481_out.txt", "a")
         print("Exporting to file output...")
         for student in students:
-            if student.final_grade >= final_grade:
-                f.write(f"{student.id}|{student.name}|{student.tel}|{student.theory_marks}|{student.practice_marks}|{student.final_grade}|{student.classification}\n")
+            if student.overall >= overall:
+                f.write(f"{student.id}|{student.name}|{student.tel}|{student.theory_marks}|{student.practice_marks}|{student.overall}|{student.classification}\n")
         print("Done!")
 
 
@@ -78,7 +78,7 @@ def main():
         if choice == 2:
             show_data()
         if choice == 3:
-            filter_students_final_grade(7)
+            filter_students_overall(7)
         if choice > 3:
             quit()
         main()
